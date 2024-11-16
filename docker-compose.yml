@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  laravel_mysql:
+    image: mysql:8.0
+    container_name: laravel_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Samsung@123
+      MYSQL_DATABASE: laravel
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  laravel_redis:
+    image: redis:latest
+    container_name: laravel_redis
+    ports:
+      - "6379:6379"
+
+  app:
+    build:
+      context: .
+    container_name: laravel-todolist-api-app-1
+    ports:
+      - "8000:8000"
+    depends_on:
+      - laravel_mysql
+      - laravel_redis
+    environment:
+      - DB_CONNECTION=mysql
+      - DB_HOST=laravel_mysql
+      - DB_PORT=3306
+      - DB_DATABASE=laravel
+      - DB_USERNAME=root
+      - DB_PASSWORD=Samsung@123
+    command: bash -c "composer install && php artisan migrate && php artisan key:generate && php -S 0.0.0.0:8000 -t public"
+
+volumes:
+  db_data:
