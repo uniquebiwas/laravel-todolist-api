@@ -20,4 +20,4 @@ jobs:
 
     - name: SSH into Vagrant VM and create directory
       run: |
-        ssh -o StrictHostKeyChecking=no vagrant@192.168.1.70 "mkdir -p test"
+        ssh -o StrictHostKeyChecking=no azureuser@4.237.66.171 "mkdir -p test"
