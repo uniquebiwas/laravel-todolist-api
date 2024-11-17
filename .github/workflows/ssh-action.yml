@@ -1,4 +1,4 @@
-name: SSH into Vagrant VM and Create Directory
+name: SSH into Vagrant VM and Run Ansible Playbook
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 jobs:
   ssh-into-vm:
     runs-on: ubuntu-latest
-    
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
@@ -18,6 +18,9 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: SSH into Vagrant VM and create directory
+    - name: SSH into Vagrant VM, create directory, and run Ansible playbook
       run: |
-        ssh -o StrictHostKeyChecking=no azureuser@4.237.66.171 "mkdir -p test"
+        ssh -o StrictHostKeyChecking=no azureuser@20.70.208.207 "
+        cd ansible &&
+        ansible-playbook -i inventory.ini main.yaml
+        "
