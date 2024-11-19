@@ -1,3 +1,7 @@
+# Created Main and Local-docker-app 2 branch for the task main for deployment using Azure VM, Github Action, Self Hosted Runner, Nginx, PHP-FPM
+# Local-docker-app repo for local deployment with docker image and compose file. 
+
+
 # Laravel To-Do List API
 
 A simple To-Do list API built with Laravel.

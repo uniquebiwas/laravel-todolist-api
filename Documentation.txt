@@ -1,0 +1,25 @@
+Documentation
+
+Local Setup
+
+Clone the repository and checkout the local-docker-app branch.
+
+Run docker-compose up --build to start the application locally.
+
+Remote Setup
+
+Set up an Azure VM and provision it with Nginx, MySQL, and Redis using the setup.yaml Ansible playbook.
+
+SSH into the remote server and deploy the application from the GitHub repository.
+
+CI/CD Pipeline
+
+The GitHub Actions workflow runs on every push to the main branch.
+
+The pipeline builds, tests, and deploys the application to the remote Azure VM.
+
+
+Screenshots
+
+Please refer to the repository for screenshots of the API response post-deployment. Screenshots are included in the output folder for both the Docker setup and Remote deployment branches.
+
