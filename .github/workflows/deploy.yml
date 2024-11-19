@@ -27,7 +27,7 @@ jobs:
 
     - name: Deploy to Server
       run: |
-        ssh -o StrictHostKeyChecking=no azureuser@20.70.208.207 <<EOF
+        ssh -o StrictHostKeyChecking=no azureuser@20.70.211.17 <<EOF
           cd /var/www/laravel-todolist-api
           git pull origin main
           composer install
