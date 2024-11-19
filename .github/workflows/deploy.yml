@@ -36,6 +36,7 @@ jobs:
       run: |
         ssh -o StrictHostKeyChecking=no azureuser@20.70.211.17 <<EOF
         cd /var/www/laravel-todolist-api
+        sudo su
         git pull origin main
         composer install --no-dev --optimize-autoloader
         php artisan migrate --force
